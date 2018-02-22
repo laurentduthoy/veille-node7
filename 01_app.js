@@ -100,15 +100,21 @@ ordre = (req.params.ordre == 'asc' ? 'desc' : 'asc')
 app.get('/peupler', (req, res) => {
 
 	let resultat = peupler_Json() 
-	let elm;
+
 	//console.log("resultat = " + util.inspect(resultat));
-	for (elm of resultat) {
-		db.collection('adresse').insertMany(elm, (err, result) => {
+
+		db.collection('adresse').insertMany(resultat, (err, result) => {
 			if (err) return console.log(err) 
 		})
-	}
+
 
 	res.redirect('/list');
 })
 
-///aaa
+///vide la bdd
+app.get('/vider', (req, res) => {
+	db.collection('adresse').remove({}, (err, resultat) => {
+		if (err) return console.log(err)
+		res.redirect('/list')  // redirige vers la route qui affiche la collection
+	})
+})

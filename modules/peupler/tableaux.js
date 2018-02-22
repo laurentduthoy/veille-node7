@@ -78,7 +78,7 @@ let courrielExt = [
 				".ca",
 				".fr",
 				".uk",
-				".co"
+				".tk"
 ];
 
 let courrielSeparation = [

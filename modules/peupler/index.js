@@ -11,7 +11,7 @@ let tabTelephone = peupler.tabTelephone;
 
 const peupler_Json = () => {
 	let tabPersonnes = [];
-	let tabUnePersonne;
+	let tabUnePersonne = {};
 	let position = 0;
 	let nom;
 	let prenom;
@@ -21,7 +21,7 @@ const peupler_Json = () => {
 	let ntelephone3;
 	let ntelephone4;
 
-	for(i=0 ; i<3 ; i++){
+	for(i=0 ; i<50 ; i++){
 		nom = "";
 		prenom = "";
 		courriel = "";
@@ -60,7 +60,7 @@ const peupler_Json = () => {
 		position = Math.floor(Math.random()*tabTelephone.length);
 		telephone =  tabTelephone[position];
 
-		for(i=0 ; i<3 ; i++){
+		for(t=0 ; t<3 ; t++){
 			nb = Math.round(Math.random()*9);
 			ntelephone3 += tabNumero[nb];
 		}
@@ -83,7 +83,7 @@ const peupler_Json = () => {
 			'courriel':prenom+courrielSepatation+nom+courriel+courrielExt
 		}
 
-		tabPersonnes.push(tabUnePersonne);
+		tabPersonnes[i] = tabUnePersonne;
 
 	}
 	return tabPersonnes;
