@@ -1,6 +1,7 @@
 'use strick';
 
 const peupler = require("./tableaux.js");
+const util = require("util");
 let tabPrenom = peupler.tabPrenom;
 let tabNom = peupler.tabNom;
 let tabCourriel = peupler.tabCourriel;
@@ -10,7 +11,7 @@ let tabTelephone = peupler.tabTelephone;
 
 const peupler_Json = () => {
 	let tabPersonnes = [];
-	let tabUnePersonne = {};
+	let tabUnePersonne;
 	let position = 0;
 	let nom;
 	let prenom;
@@ -20,8 +21,7 @@ const peupler_Json = () => {
 	let ntelephone3;
 	let ntelephone4;
 
-	for(i=0 ; i<=1 ; i++){
-		tabPersonnes = [];
+	for(i=0 ; i<3 ; i++){
 		nom = "";
 		prenom = "";
 		courriel = "";
@@ -77,19 +77,16 @@ const peupler_Json = () => {
 		//console.log(tabPersonnes);
 
 		tabUnePersonne ={
-			prenom:prenom,
-			nom:nom,
-			telephone:"("+telephone+")"+"-"+ntelephone3+"-"+ntelephone4,
-			courriel:prenom+courrielSepatation+nom+courriel+courrielExt
+			'prenom':prenom,
+			'nom':nom,
+			'telephone':"("+telephone+")"+"-"+ntelephone3+"-"+ntelephone4,
+			'courriel':prenom+courrielSepatation+nom+courriel+courrielExt
 		}
-
-		console.log(tabUnePersonne);
 
 		tabPersonnes.push(tabUnePersonne);
 
 	}
-
-	return tabUnePersonne;
+	return tabPersonnes;
 }
 
 module.exports = peupler_Json;
