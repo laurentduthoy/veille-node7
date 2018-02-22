@@ -88,7 +88,6 @@ let courrielSeparation = [
 				""
 ];
 
-
 let telephone = [
 				"514",
 				"438",
