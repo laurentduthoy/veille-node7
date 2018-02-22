@@ -72,9 +72,6 @@ const peupler_Json = () => {
 		
 		tabPersonnes.push("("+telephone+")"+"-"+ntelephone3+"-"+ntelephone4);
 
-
-
-
 	}
 
 }

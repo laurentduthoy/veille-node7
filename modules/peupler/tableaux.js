@@ -63,13 +63,14 @@ let nom = [
 ];
 
 let courriel = [
-				"hotmail",
-				"gmail",
-				"videotron",
-				"yahoo",
-				"globetrotter"
-				"sympatico",
-				"icloud"
+				"@hotmail",
+				"@gmail",
+				"@videotron",
+				"@yahoo",
+				"@globetrotter",
+				"@sympatico",
+				"@icloud",
+				"@outlook"
 ];
 
 let courrielExt = [
@@ -83,7 +84,7 @@ let courrielExt = [
 let courrielSeparation = [
 				".",
 				"_",
-				"-".
+				"-",
 				""
 ];
 
@@ -94,9 +95,9 @@ let telephone = [
 				"450"
 ];
 
-module.exports = prenom;
+module.exports.tabPrenom = prenom;
 module.exports.tabNom = nom;
-module.exports.tabPrenom = courriel;
-module.exports.tabCourriel = courrielExt;
-module.exports.tabTelephone = courrielSeparation;
+module.exports.tabCourriel = courriel;
+module.exports.tabCourrielExt = courrielExt;
+module.exports.tabCourrielSeparation = courrielSeparation;
 module.exports.tabTelephone = telephone;

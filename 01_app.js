@@ -3,6 +3,7 @@ const app = express();
 app.use(express.static('public'));
 const MongoClient = require('mongodb').MongoClient;
 const util = require("util");
+const peupler_Json = require("./modules/peupler/index.js");
 const ObjectID = require('mongodb').ObjectID;
 
 /* on associe le moteur de vue au module «ejs» */
@@ -94,10 +95,11 @@ ordre = (req.params.ordre == 'asc' ? 'desc' : 'asc')
 })
 })
 
+
 // ============ PEUPLER
 app.get('/peupler', (req, res) => {
 
-	let tableauPersonnes = peupleur_Json();
+	let tableauPersonnes = peupler_Json();
 	for(i=0 ; i<30 ; i++){
 		let leTableau = tableauPersonnes[i];
 		let tableauPersonne = {
@@ -105,14 +107,13 @@ app.get('/peupler', (req, res) => {
 			prenom:tableau[1],
 			courriel:tableau[2],
 			telephone:tableau[3]
-
-			//sauvegarder dansla bdd
+		}		
+			//sauvegarder dans la bdd
 			db.collection('adresse').save(tableauPersonne, (err, result) => {
 			if (err) return console.log(err)
 			console.log('sauvegarder dans la BD')
 			})
 		}
-	}
 
 	res.redirect('/list');
 })
