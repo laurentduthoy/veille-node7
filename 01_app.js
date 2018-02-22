@@ -93,3 +93,28 @@ ordre = (req.params.ordre == 'asc' ? 'desc' : 'asc')
  res.render('components/adresse.ejs', {adresses: resultat, cle, ordre })
 })
 })
+
+// ============ PEUPLER
+app.get('/peupler', (req, res) => {
+
+	let tableauPersonnes = peupleur_Json();
+	for(i=0 ; i<30 ; i++){
+		let leTableau = tableauPersonnes[i];
+		let tableauPersonne = {
+			nom:tableau[0],
+			prenom:tableau[1],
+			courriel:tableau[2],
+			telephone:tableau[3]
+
+			//sauvegarder dansla bdd
+			db.collection('adresse').save(tableauPersonne, (err, result) => {
+			if (err) return console.log(err)
+			console.log('sauvegarder dans la BD')
+			})
+		}
+	}
+
+	res.redirect('/list');
+})
+
+//rdddddddddddddddddd

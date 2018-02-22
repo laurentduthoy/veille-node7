@@ -70,7 +70,7 @@ const peupler_Json = () => {
 			ntelephone4 += tabNumero[nb];
 		}
 		
-		tabPersonnes.push(telephone+"-"+ntelephone3+"-"+ntelephone4);
+		tabPersonnes.push("("+telephone+")"+"-"+ntelephone3+"-"+ntelephone4);
 
 
 
